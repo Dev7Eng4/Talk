@@ -1,8 +1,60 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .h-e-header {
+    height: calc(100vh - 72px);
+  }
+
+  .h-main {
+    height: calc(100vh - 189px);
+  }
+
+  .h-header {
+    height: 72px;
+  }
+
+  .w-45 {
+    width: 450px;
+  }
+
+  .hide-scroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .scroll-transparent::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .rounded-cycle {
+    border-radius: 50%;
+  }
+
+  .text-2-line {
+    display: -webkit-box;
+    white-space: normal !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+html {
+  /* font-size: 62.5%; */
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +62,85 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.skeleton:empty {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text:empty {
+  height: 0.7rem;
+  border-radius: 0.25rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 90%);
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: #f1f1f1; */
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  top: 10px;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

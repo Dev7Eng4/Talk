@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { defineCustomElements } from '@duetds/date-picker/dist/loader';
+
+import AppRouter from './routes';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+
+defineCustomElements(window);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <AppRouter />
+    </Router>
   </React.StrictMode>
 );
 
